@@ -1,3 +1,4 @@
+import "./landing.css";
 import Link from "next/link";
 import { ArrowRight, BarChart3, Building2, CheckCircle2, Database, HeartHandshake, LockKeyhole, Network, ShieldCheck, Sparkles, Users } from "lucide-react";
 
