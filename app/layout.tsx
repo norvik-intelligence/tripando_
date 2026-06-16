@@ -3,6 +3,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./tenant.css";
 import "./premium.css";
+import "./premium-shell.css";
+import "./premium-layout.css";
+import "./premium-dashboard.css";
+import "./premium-insights.css";
 
 export const metadata: Metadata = {
   title: "Tripando – Soziale Teilhabe organisieren",
