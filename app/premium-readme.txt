@@ -1,1 +1,0 @@
-Tripando Premium Enterprise UI active.
