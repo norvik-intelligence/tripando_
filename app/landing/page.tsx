@@ -1,5 +1,6 @@
 import "./landing.css";
 import Link from "next/link";
+import { LeadForm } from "@/components/lead-form";
 import { ArrowRight, BarChart3, Building2, Calculator, CheckCircle2, Database, HeartHandshake, LockKeyhole, Network, ShieldCheck, Sparkles, Users } from "lucide-react";
 
 const audiences = ["Wohlfahrtsverbände", "Kommunen", "Pflegeanbieter", "Quartiersarbeit"];
@@ -19,6 +20,6 @@ export default function LandingPage() {
     <section id="wirkung" className="impact-section"><div className="impact-copy"><span>Wirkung</span><h2>Soziale Teilhabe wird messbar.</h2><p>Tripando erzeugt aus normalen Arbeitsabläufen automatisch Zahlen für Leitung, Fördermittel, Qualitätsmanagement und kommunale Partner.</p></div><div className="impact-metrics"><article><strong>84</strong><span>Operations Score</span></article><article><strong>92%</strong><span>Standortabdeckung</span></article><article><strong>214</strong><span>Teilnahmen im Quartal</span></article></div></section>
     <section className="security-section"><div className="security-card"><Database size={21}/><h3>Datenmodell für echte Organisationen</h3><p>Organisation, Träger, Standort, Aktivität, Anmeldung und Wirkung sind von Anfang an sauber getrennt gedacht.</p></div><div className="security-card"><ShieldCheck size={21}/><h3>Bereit für Datenschutzprüfung</h3><p>Supabase, Rollenrechte, Row Level Security und Löschkonzepte sind als nächste Ausbaustufe vorbereitet.</p></div><div className="security-card"><LockKeyhole size={21}/><h3>White-Label-fähig</h3><p>Jede Organisation kann eigene Farben, Standorte, öffentliche Angebotsseiten und Berichte erhalten.</p></div></section>
     <section id="preise" className="landing-section"><div className="section-heading"><span>Preise</span><h2>Planbare SaaS-Pakete für soziale Organisationen.</h2></div><div className="pricing-grid">{pricing.map(([name,price,text])=><article className="pricing-card" key={name}><span>{name}</span><strong>{price}</strong><p>{text}</p></article>)}</div></section>
-    <section id="pilot" className="cta-section"><span>Modellregion starten</span><h2>Starte mit 3–5 Einrichtungen und beweise den Nutzen in 90 Tagen.</h2><p>Der beste Start ist ein begrenzter Pilot mit echten Aktivitäten, echten Anmeldungen und messbaren Ergebnissen.</p><div className="hero-actions"><Link href="/app" className="landing-primary">Demo ansehen <ArrowRight size={17}/></Link><Link href="/api/leads" className="landing-secondary">API prüfen</Link></div></section>
+    <section id="pilot" className="cta-section"><span>Modellregion starten</span><h2>Starte mit 3–5 Einrichtungen und beweise den Nutzen in 90 Tagen.</h2><p>Der beste Start ist ein begrenzter Pilot mit echten Aktivitäten, echten Anmeldungen und messbaren Ergebnissen.</p><LeadForm/><div className="hero-actions"><Link href="/app" className="landing-secondary">Demo ansehen</Link><Link href="/api/leads" className="landing-secondary">API prüfen</Link></div></section>
   </main>;
 }
