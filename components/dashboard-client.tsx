@@ -1,5 +1,7 @@
-import { OrganizationSummary } from "@/components/organization-summary";
+import { DashboardActions } from "@/components/dashboard-actions";
+import { DashboardMetrics } from "@/components/dashboard-metrics";
+import { DashboardOperations } from "@/components/dashboard-operations";
 
 export function DashboardClient() {
-  return <section className="panel"><div className="panel-head"><div><span className="eyebrow">TRIPANDO NETZWERK</span><h2>Organisationsübergreifende Plattform</h2></div></div><OrganizationSummary/></section>;
+  return <><DashboardMetrics/><DashboardOperations/><DashboardActions/></>;
 }
