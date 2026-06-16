@@ -1,41 +1,4 @@
 import "./landing.css";
 import Link from "next/link";
 import { ArrowRight, BarChart3, Building2, CheckCircle2, Database, HeartHandshake, LockKeyhole, Network, ShieldCheck, Sparkles, Users } from "lucide-react";
-
-const audiences = ["Wohlfahrtsverbände", "Kommunen", "Pflegeanbieter", "Quartiersarbeit"];
-const metrics = [["31 %", "weniger Leerkapazität durch Pool Booking"], ["18 h", "geschätzte Organisationszeit pro Monat gespart"], ["1", "gemeinsamer Überblick für alle Standorte"]];
-const features = [
-  [Network, "Pool Booking", "Freie Plätze zwischen Einrichtungen und Partnern bündeln, ohne Teilnehmerdaten offenzulegen."],
-  [Users, "Teilnehmermanagement", "Anmeldungen, Wartelisten, Unterstützungsbedarfe und Anwesenheitslisten strukturiert verwalten."],
-  [BarChart3, "Wirkungsberichte", "Teilnahmen, Auslastung, Erstkontakte und soziale Wirkung automatisch auswerten."],
-  [Building2, "Multi-Organisation", "Träger, Kommunen, Einrichtungen und regionale Netzwerke in einer mandantenfähigen Struktur abbilden."],
-  [ShieldCheck, "Barrierearm geplant", "Seniorengerechte Informationen, klare Anmeldung und Fokus auf barrierefreie Angebotsdetails."],
-  [LockKeyhole, "Datenschutz-ready", "Für Rollen, Rechte, Mandantentrennung und EU-Datenhaltung vorbereitet."],
-];
-const workflow = ["Angebot planen", "Standorte einladen", "Anmeldungen bündeln", "Durchführen", "Wirkung nachweisen"];
-
-export default function LandingPage() {
-  return <main className="landing-page">
-    <nav className="landing-nav">
-      <Link href="/landing" className="landing-brand"><span><HeartHandshake size={21}/></span><strong>Tripando</strong></Link>
-      <div className="landing-nav-links"><a href="#produkt">Produkt</a><a href="#wirkung">Wirkung</a><a href="#pilot">Pilot</a><Link href="/" className="landing-login">App öffnen</Link></div>
-    </nav>
-
-    <section className="landing-hero">
-      <div className="hero-copy"><div className="hero-badge"><Sparkles size={15}/> Enterprise-Plattform für soziale Teilhabe</div><h1>Die Betriebsplattform für Gruppenaktivitäten sozialer Organisationen.</h1><p>Tripando hilft Trägern, Kommunen und Einrichtungen dabei, Angebote zu planen, Teilnehmende zu verwalten, freie Plätze zu bündeln und Wirkung sauber nachzuweisen.</p><div className="hero-actions"><Link href="#pilot" className="landing-primary">Pilot starten <ArrowRight size={17}/></Link><Link href="/" className="landing-secondary">Demo öffnen</Link></div><div className="audience-row">{audiences.map((item)=><span key={item}>{item}</span>)}</div></div>
-      <div className="hero-product" aria-label="Tripando Produktvorschau"><div className="product-top"><div><span>Steuerungszentrale</span><strong>Regionalnetzwerk Essen</strong></div><span className="live-pill">Live Pilot</span></div><div className="product-grid">{metrics.map(([value,label])=><div className="product-metric" key={label}><strong>{value}</strong><span>{label}</span></div>)}</div><div className="product-table"><div><span>Aktivität</span><span>Auslastung</span><span>Status</span></div>{["Mosel-Tagesfahrt","Museum-Führung","Smartphone-Café"].map((item,index)=><div key={item}><strong>{item}</strong><span>{[81,90,56][index]}%</span><em>{index===2?"Offen":"Freigegeben"}</em></div>)}</div></div>
-    </section>
-
-    <section className="logo-strip"><span>Gebaut für die Branche:</span><strong>Wohlfahrt</strong><strong>Kommunen</strong><strong>Pflege</strong><strong>Quartier</strong><strong>Begegnungsstätten</strong></section>
-
-    <section id="produkt" className="landing-section"><div className="section-heading"><span>Produkt</span><h2>Ein System für Planung, Buchung und Wirkung.</h2><p>Nicht noch ein Veranstaltungskalender. Tripando verbindet operative Abläufe mit regionaler Zusammenarbeit.</p></div><div className="feature-grid">{features.map(([Icon,title,text])=><article className="feature-card" key={String(title)}><div className="feature-icon"><Icon size={20}/></div><h3>{title}</h3><p>{text}</p></article>)}</div></section>
-
-    <section className="split-section"><div><span className="section-kicker">Workflow</span><h2>Von der Idee bis zum Wirkungsbericht.</h2><p>Jede Einrichtung kann eigene Angebote erstellen. Mehrere Standorte oder Organisationen können Kapazitäten gemeinsam füllen. Leitungen sehen Auslastung, Reichweite und Engpässe in einer konsolidierten Ansicht.</p><ul className="check-list"><li><CheckCircle2 size={17}/> Keine App-Pflicht für Seniorinnen und Senioren</li><li><CheckCircle2 size={17}/> Telefonische und persönliche Anmeldung bleibt möglich</li><li><CheckCircle2 size={17}/> Mandantenfähigkeit für Träger und Netzwerke</li></ul></div><div className="workflow-card">{workflow.map((item,index)=><div key={item}><span>{String(index+1).padStart(2,"0")}</span><strong>{item}</strong></div>)}</div></section>
-
-    <section id="wirkung" className="impact-section"><div className="impact-copy"><span>Wirkung</span><h2>Soziale Teilhabe wird messbar.</h2><p>Tripando erzeugt aus normalen Arbeitsabläufen automatisch Zahlen für Leitung, Fördermittel, Qualitätsmanagement und kommunale Partner.</p></div><div className="impact-metrics"><article><strong>84</strong><span>Operations Score</span></article><article><strong>92%</strong><span>Standortabdeckung</span></article><article><strong>214</strong><span>Teilnahmen im Quartal</span></article></div></section>
-
-    <section className="security-section"><div className="security-card"><Database size={21}/><h3>Datenmodell für echte Organisationen</h3><p>Organisation, Träger, Standort, Aktivität, Anmeldung und Wirkung sind von Anfang an sauber getrennt gedacht.</p></div><div className="security-card"><ShieldCheck size={21}/><h3>Bereit für Datenschutzprüfung</h3><p>Die nächste Ausbaustufe ergänzt Supabase, Rollenrechte, Row Level Security und Löschkonzepte.</p></div><div className="security-card"><LockKeyhole size={21}/><h3>White-Label-fähig</h3><p>Jede Organisation kann eigene Farben, Standorte, öffentliche Angebotsseiten und Berichte erhalten.</p></div></section>
-
-    <section id="pilot" className="cta-section"><span>Modellregion starten</span><h2>Starte mit 3–5 Einrichtungen und beweise den Nutzen in 90 Tagen.</h2><p>Der beste Start ist ein begrenzter Pilot mit echten Aktivitäten, echten Anmeldungen und messbaren Ergebnissen.</p><div className="hero-actions"><Link href="/" className="landing-primary">Demo ansehen <ArrowRight size={17}/></Link><a href="mailto:moccca1988@gmail.com" className="landing-secondary">Pilot anfragen</a></div></section>
-  </main>;
-}
+const audiences=["Wohlfahrtsverbände","Kommunen","Pflegeanbieter","Quartiersarbeit"];const metrics=[["31 %","weniger Leerkapazität durch Pool Booking"],["18 h","geschätzte Organisationszeit pro Monat gespart"],["1","gemeinsamer Überblick für alle Standorte"]];const features=[[Network,"Pool Booking","Freie Plätze zwischen Einrichtungen und Partnern bündeln, ohne Teilnehmerdaten offenzulegen."],[Users,"Teilnehmermanagement","Anmeldungen, Wartelisten, Unterstützungsbedarfe und Anwesenheitslisten strukturiert verwalten."],[BarChart3,"Wirkungsberichte","Teilnahmen, Auslastung, Erstkontakte und soziale Wirkung automatisch auswerten."],[Building2,"Multi-Organisation","Träger, Kommunen, Einrichtungen und regionale Netzwerke in einer mandantenfähigen Struktur abbilden."],[ShieldCheck,"Barrierearm geplant","Seniorengerechte Informationen, klare Anmeldung und Fokus auf barrierefreie Angebotsdetails."],[LockKeyhole,"Datenschutz-ready","Für Rollen, Rechte, Mandantentrennung und EU-Datenhaltung vorbereitet."]];const workflow=["Angebot planen","Standorte einladen","Anmeldungen bündeln","Durchführen","Wirkung nachweisen"];export default function LandingPage(){return <main className='landing-page'>...</main>}
