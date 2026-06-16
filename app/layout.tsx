@@ -2,6 +2,7 @@ import { OrganizationProvider } from "@/components/organization-provider";
 import type { Metadata } from "next";
 import "./globals.css";
 import "./tenant.css";
+import "./premium.css";
 
 export const metadata: Metadata = {
   title: "Tripando – Soziale Teilhabe organisieren",
